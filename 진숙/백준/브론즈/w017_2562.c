@@ -1,11 +1,20 @@
 #include <stdio.h>
 #include <string.h>
 
-int main(void)
-{
+int main(void){
+    int arr[9];
+    int max = 0, idx = 0;
+    for(int i = 0; i < 9; i++){
+        scanf("%d", &arr[i]);
+        if(arr[i] > max){
+            max = arr[i];
+            idx = i;
+        }
+    }
+
+    printf("%d\n%d", arr[idx], idx+1);
+    return 0;
 }
-
-
 
 /*
 1. 9개의 자연수를 입력받는다 (배열 arr에 담는다)

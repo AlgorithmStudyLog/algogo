@@ -1,9 +1,9 @@
 #include <stdio.h>
 int main()
 {
-	int a[9][9] = { {0,0} };
+	int a[9][9] = { 0 };
 	int i, j;
-	int q, w;
+	int q = 0, w = 0;
 	int max = 0;
 
 	for (i = 0; i < 9; i++)
@@ -26,6 +26,8 @@ int main()
 			}
 		}
 	}
+
+
 	printf("%d\n", max);
 	printf("%d %d", q, w);
 

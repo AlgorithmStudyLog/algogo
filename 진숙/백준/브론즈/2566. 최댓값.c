@@ -8,7 +8,7 @@ int main(){
     for(int i = 0; i < 9; i++){
         for(int j = 0; j < 9; j++){
             scanf("%d", &arr[i][j]);
-            if(max < arr[i][j] || max == arr[i][j]){
+            if(max <= arr[i][j]){
                 max = arr[i][j];
                 max_i = i+1;
                 max_j = j+1;

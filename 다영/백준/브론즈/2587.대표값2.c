@@ -42,7 +42,6 @@ int main(void) {
 
 	printf("%d\n", avg);
 	printf("%d\n", arr[2]);
-	//배열은 0부터 시작...
 
 	return 0;
 }

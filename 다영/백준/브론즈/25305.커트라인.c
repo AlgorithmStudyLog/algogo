@@ -4,7 +4,8 @@
 
 int main(void) {
 
-	int n = 0, k = 0;	//응시자 수, 상 받는 수
+	int n = 0;			//응시자 수
+	int k = 0;			//상 받는 수
 	int* x = NULL;		//점수 배열
 
 	scanf("%d %d", &n, &k);

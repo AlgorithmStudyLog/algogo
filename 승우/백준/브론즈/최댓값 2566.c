@@ -1,35 +1,17 @@
 #include <stdio.h>
 int main()
 {
-	int a[9][9] = { 0 };
-	int i, j;
-	int q = 0, w = 0;
-	int max = 0;
+	int num, i;
+	int cnt[11] = { 0 };
 
-	for (i = 0; i < 9; i++)
+	while (1)
 	{
-		for (j = 0; j < 9; j++)
-		{
-			scanf("%d", &a[i][j]);
-		}
+		scanf("%d", &num);
+		if (num < 1 || num > 10)
+			break;
+		cnt[num]++;
 	}
-
-	for (i = 0; i < 9; i++)
-	{
-		for (j = 0; j < 9; j++)
-		{
-			if (max < a[i][j])
-			{
-				max = a[i][j];
-				q = i + 1;
-				w = j + 1;
-			}
-		}
-	}
-
-
-	printf("%d\n", max);
-	printf("%d %d", q, w);
 
 	return 0;
 }
+

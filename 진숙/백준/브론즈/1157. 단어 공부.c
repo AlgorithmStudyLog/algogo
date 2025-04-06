@@ -29,7 +29,6 @@ int main(){
     // max와 같은 개수인 알파벳 발견하면 c 에 '?' 저장하고 반복 종료
     for(int i = 0; i < 26; i++){
         if(max == cnt[i] && c != i + 'A'){
-            printf("temp");
             c = '?';
             break;
         }

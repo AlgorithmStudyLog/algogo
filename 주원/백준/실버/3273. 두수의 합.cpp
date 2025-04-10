@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-
+#include <algorithm>
 
 
 int main() {
@@ -22,6 +22,8 @@ int main() {
     }
 
     std::cin >> x;
+
+    sort(arr.begin(),arr.end());
 
     while(start < end){
         if(arr[start] + arr[end] < x){

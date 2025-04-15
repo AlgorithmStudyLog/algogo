@@ -5,7 +5,6 @@
 
 using namespace std;
 
-
 int main() {
 	string st;
 	int n;

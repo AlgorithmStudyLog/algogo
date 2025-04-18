@@ -40,7 +40,7 @@ void push(int x){
 }
 // empty: 스택이 비어있으면 1, 아니면 0을 출력한다.
 void empty(){
-    if(top_idx == -1){
+    if(isempty()){
         printf("1\n");
     }else {
         printf("0\n");

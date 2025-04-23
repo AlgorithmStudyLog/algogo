@@ -5,6 +5,7 @@
 using namespace std;
 
 int main() {
+    
     stack<int> st;
     int n;
     string temp = "";

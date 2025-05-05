@@ -18,11 +18,11 @@ void enqueue(char date) // 큐에서 데이터 넣기
 	queue[rear++] = date; // 끝 위치를 한칸 이동
 }
 
-char dequeue() // 큐에서 데이터 꺼내기
+char dataout() // 큐에서 데이터 꺼내기
 {
 	if (front == rear) // 큐가 비었으면 출력
 	{
-		return -1; // -1 값을 반환
+		return -1; // 큐가 비었다는 신호 -1 값을 반환
 	}
 	return queue[front++]; // 꺼낼 위치를 다음 칸으로 이동
 }
@@ -36,26 +36,27 @@ int main()
 {
 	char room[MAX]; // 방번호 지정 문자열
 	int count[10] = { 0 }; // 0 ~ 9까지 각각 몇번 나갔는지 저장하는 배열
+	int i, max = 0; // Max 값 0으로 초기화
+	int six_nine = 0; // 6,9 합친 값
 
 	scanf("%s", room);
 
-	for (int i = 0; i < strlen(room); i++) // 문자 하나씩 Q에 저장
+	for (i = 0; i < strlen(room); i++) // 문자 하나씩 Q에 저장
 	{
 		enqueue(room[i]); // room 길이만큼 반복
 	}
 
-	while (!is_empty()) 
+	while (!is_empty()) // 비여있지 않으면 반복
 	{
-		char ch = dequeue(); // 데이터 꺼내기
-		int digit = ch - '0';  // 문자를 숫자로 변환
-		count[digit]++; // 등장 횟수를 배열로 기록
+		char ch = dataout(); // 데이터 꺼내기
+		int change = ch - '0';  // 문자를 숫자로 변환
+		count[change]++; // 등장 횟수를 배열로 기록
 	}
 
-	int six_nine = count[6] + count[9]; // 6, 9를 함께 사용 가능함으로 합쳐서 처리
+	six_nine = count[6] + count[9]; // 6, 9를 함께 사용 가능함으로 합쳐서 처리
 	count[6] = count[9] = (int)ceil(six_nine / 2.0); // 합친 수를 2로 나누고 올림 - ceil
 
-	int max = 0;
-	for (int i = 0; i < 10; i++) 
+	for (i = 0; i < 10; i++) 
 	{
 		if (count[i] > max)
 			max = count[i]; // 가장 많이 필요한 갯수를 세트에 저장

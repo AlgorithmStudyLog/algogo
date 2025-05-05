@@ -13,7 +13,6 @@ void enqueue(char date) // 큐에서 데이터 넣기
 {
 	if (rear >= MAX) // 큐가 가득찼는지 확인
 	{
-		printf("큐 포화\n"); // 참 일경우 출력
 		return;
 	}
 	queue[rear++] = date; // 끝 위치를 한칸 이동
@@ -23,7 +22,6 @@ char dequeue() // 큐에서 데이터 꺼내기
 {
 	if (front == rear) // 큐가 비었으면 출력
 	{
-		printf("큐 공백\n"); // 큐 공백 출력
 		return -1; // -1 값을 반환
 	}
 	return queue[front++]; // 꺼낼 위치를 다음 칸으로 이동

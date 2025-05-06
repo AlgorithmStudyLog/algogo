@@ -14,7 +14,6 @@ ceil() -> 올림 함수 [2.1 -> 3 / 4.5 -> 5]
 // 5. 가장 많이 나온 숫자의 개수 출력
 // 6. 결과 출력
 
-
 #include <stdio.h>
 #include <string.h> // 문자열 함수
 #include <math.h> // 수학 함수
@@ -75,8 +74,10 @@ int main()
 
 	for (i = 0; i < 10; i++) 
 	{
-		if (count[i] > max)
+		if (count[i] > max) 
+		{
 			max = count[i]; // 가장 많이 필요한 갯수를 세트에 저장
+		}
 	}
 
 	printf("%d\n", max);

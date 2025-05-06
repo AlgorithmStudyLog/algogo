@@ -1,56 +1,47 @@
 #include <stdio.h>
 #include <string.h>
-#define MAX 30
+#include <ctype.h>
+#define SIZE 30
 
-char stack[MAX][MAX];
-char popElement[MAX];
-int top = -1;
-
-int is_full();
-int is_empty();
-void push(char* item);
-char* pop();
+void solution(char str[], int cnt);
+void printReverse(char word[], int idx);
 
 int main(){
     int n = 0;
+    char str[SIZE];
     scanf("%d", &n);
     getchar();
 
-    // 입력받기
-    for(int i = 0; i < n ; i++){
-        char temp[MAX];
-        fgets(temp, MAX, stdin);
-        temp[strcspn(temp, "\n")] = '\0';  // 줄바꿈 제거
-        push(temp);
-    }   
-
-    // 역순으로 출력하기
     for(int i = 0; i < n; i++){
-        printf("%s", pop());
+        scanf("%[^\n]s", str);
+        getchar();
+        solution(str, i+1);
     }
     return 0;
 }
-int is_full(){
-    return top == (MAX - 1);
-}
-int is_empty(){
-    return top == -1;
-}
-void push(char* item){
-    if(is_full()){
-        return;
+
+void solution(char str[], int cnt){
+    int idx = 0;
+    char word[SIZE];
+    int len = strlen(str);
+
+    printf("Case #%d: ", cnt);
+
+    for(int i = len-1; i >= 0; i--){
+        if(!isspace(str[i])){
+            word[idx++] = str[i];
+            continue;
+        }
+        printReverse(word, idx);
+        printf(" ");
+        idx = 0;
     }
-    // 단어 단위로 분리하여 스택에 저장
-    char* word = strtok(item, " ");  // 공백을 기준으로 첫 단어를 분리
-    while(word != NULL){
-        strcpy(stack[top], word);  // 단어를 스택에 저장
-        word = strtok(NULL, " ");  // 다음 단어로 이동
-    }
+    printReverse(word, idx);
+    printf("\n");
 }
-char* pop(){
-    if(is_empty()){
-        return NULL;
+
+void printReverse(char word[], int idx){
+    for(int j = idx-1; j >= 0; j--){
+        printf("%c", word[j]);
     }
-    strcpy(popElement, stack[top--]);  // top에 있는 문자열을 temp에 복사하고, top을 감소시킴
-    return popElement;  // 복사한 문자열을 반환
 }

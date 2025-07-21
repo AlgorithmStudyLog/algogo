@@ -42,3 +42,43 @@ int maxweight(vector<int>* rope, int k, int max)	// 최대값 찾을때까지 �
 	}
 	else return w;
 }
+
+/* gpt가 수정해준 코드
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int N;
+int maxweight(const vector<int>& rope);
+
+int main()
+{
+	cin >> N;
+	vector<int> rope(N);
+
+	for (int i = 0; i < N; i++)
+	{
+		cin >> rope[i];
+	}
+
+	sort(rope.rbegin(), rope.rend()); // 내림차순 정렬
+
+	int maxW = maxweight(rope);
+
+	cout << maxW << endl;
+	return 0;
+}
+
+int maxweight(const vector<int>& rope)
+{
+	int maxW = 0;
+	for (int k = 1; k <= rope.size(); k++)
+	{
+		int weight = rope[k - 1] * k;
+		if (weight > maxW)
+			maxW = weight;
+	}
+	return maxW;
+}
+*/

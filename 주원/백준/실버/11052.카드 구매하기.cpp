@@ -8,24 +8,22 @@ using namespace std;
 int main()
 {
 	int n;
-	int maxWon = 0;
+	
 	cin >> n;
-	vector<int> arr;
-	for (int i = 0;i < n;i++)
+	vector<int> arr(n + 1);
+	vector<int> dp(n + 1);
+
+	for (int i = 1;i <= n;i++)
 	{
-		int t;
-		cin >> t;
-		arr.push_back(t);
+		cin >> arr[i];
 	}
-	for (int i = 0;i < n;i++)
+
+	for (int i = 1; i <= n; i++) 
 	{
-		if(n % (i+1) == 0)
-			maxWon = max(maxWon, arr[i] * n/(i+1));
-		else if (n % (i + 1) != 0)
+		for (int j = 1; j <= i; j++) 
 		{
-			int a = n % (i + 1);
-			maxWon = max(maxWon, arr[i] * n / (i + 1) + arr[a-1]);
+			dp[i] = max(dp[i], dp[i - j] + arr[j]);
 		}
 	}
-	cout << maxWon;
+	cout << dp[n];
 }
